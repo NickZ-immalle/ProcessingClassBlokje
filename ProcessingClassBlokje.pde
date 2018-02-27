@@ -1,29 +1,54 @@
-HLine h1 = new HLine(20, 2.0); 
-HLine h2 = new HLine(50, 2.5); 
- 
+blokjes blokje1 = new blokjes(width / 2, height / 2, color(0, 0, 255));
+blokjes blokje2 = new blokjes(width / 2, height / 2, color(255, 0, 255));
+
 void setup() 
 {
-  size(200, 200);
-  frameRate(30);
+  size(300, 300);
+  frameRate(1);
 }
 
-void draw() { 
-  background(204);
-  h1.update(); 
-  h2.update();  
+int value = 0;
+
+void draw() 
+{ 
+  background(255);
+  
+  blokje1.update();
+  blokje2.update();
+  
+  rect(mouseX, mouseY, 10, 10);
+  
+  if(mousePressed == true){
+  blokje1.changeColor(color(255, 0, 0));
+  blokje2.changeColor(color(255, 0, 0));
+  }
 } 
- 
-class HLine { 
-  float ypos, speed; 
-  HLine (float y, float s) {  
-    ypos = y; 
-    speed = s; 
-  } 
-  void update() { 
-    ypos += speed; 
-    if (ypos > width) { 
-      ypos = 0; 
+
+void mousePressed()
+{
+  width += 1;
+  height += 1;
+}
+
+class blokjes
+{
+  float height, width;
+  color kleur = color(0, 225, 0);
+  blokjes (float h, float w, color c) {
+    height = h; 
+    width = w;
+    kleur = c;
+}
+  void update() 
+  {
+  if (mousePressed == true) { 
+    blokjes.w += 1;
+    blokjes.h += 1;
     } 
-    line(0, ypos, width, ypos); 
-  } 
-} 
+    stroke(kleur);
+  }
+
+  void changeColor(color c) {
+    kleur = c; 
+  }
+ }
