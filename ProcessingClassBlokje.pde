@@ -11,7 +11,7 @@ void draw() {
   blokje1.draw();
   blokje2.draw();
   
-  if(mousePressed && mouseButton == LEFT){
+  if(mousePressed && mouseButton == RIGHT){
   blokje1.update();
   blokje2.update();
  }
