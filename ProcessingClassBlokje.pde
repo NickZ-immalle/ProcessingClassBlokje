@@ -11,13 +11,20 @@ void draw() {
   blokje1.draw();
   blokje2.draw();
   
+   if(keyPressed && key == 'r') {
+   blokje1.resetSize();
+   blokje2.resetSize();
+   print("size reset\n");
+  }
+  
   if(mousePressed && mouseButton == RIGHT){
-  blokje1.update();
-  blokje2.update();
+   blokje1.update();
+   blokje2.update();
   }  
-    if(mousePressed && mouseButton == LEFT){
-  blokje1.grow();
-  blokje2.grow();
+
+  if(mousePressed && mouseButton == LEFT){
+   blokje1.grow();
+   blokje2.grow();
  }
   if(keyPressed && key == CODED) {
     switch(keyCode) {
@@ -115,4 +122,10 @@ void update() {
     this.xRichting = xRichting;
     this.yRichting = yRichting;
   }
+  
+   void resetSize() {
+    w = startingWidth;
+    h = startingHeight;
+  }
+  
 }
